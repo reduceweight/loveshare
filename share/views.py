@@ -29,8 +29,8 @@ def add_member(request):
 def show_members(request):
     response = {}
     try:
-        members = Member.objects.all()
-        response['list']  = json.loads(serializers.serialize("json", members))
+        members = Member.objects.all().values('id','name')
+        response['list']  = list(members)
         response['msg'] = 'success'
         response['error_num'] = 0
     except  Exception as e:

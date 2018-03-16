@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='article',
             name='photo',
-            field=models.ImageField(default='/frontend/static/images/common/cate_banner.jpg', upload_to='frontend/static/uploads/', verbose_name='图片'),
+            field=models.ImageField(default='/frontend/storage/images/common/cate_banner.jpg', upload_to='frontend/storage/uploads/', verbose_name='图片'),
         ),
     ]

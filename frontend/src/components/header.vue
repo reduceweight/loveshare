@@ -70,7 +70,6 @@ export default {
 	display: block;
 	height: 33px;
 	width: 194px;
-	text-indent: -999999px;
 	background: url(../../../frontend/static/images/common/logo.png) no-repeat center center;
 }
 .feel {

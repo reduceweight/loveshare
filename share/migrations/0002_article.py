@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=30, verbose_name='标题')),
                 ('content', models.TextField(max_length=300, verbose_name='正文')),
-                ('photo', models.ImageField(default='/static/images/common/cate_banner.jpg', upload_to='static/uploads/', verbose_name='图片')),
+                ('photo', models.ImageField(default='/storage/images/common/cate_banner.jpg', upload_to='storage/uploads/', verbose_name='图片')),
                 ('pub_date', models.DateTimeField(auto_now_add=True, verbose_name='发表时间')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='更新时间')),
             ],

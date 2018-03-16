@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db" uuid="a3e1ca41-bbe7-46f3-9bb8-71972ffaab4b">
+    <data-source source="LOCAL" name="db" uuid="1e4b22b8-26a9-42b1-b9f9-5f4aa70a8cd4">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>SQLite</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:E:\loveshare\db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:F:\MyGitProject\loveshare\db.sqlite3</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.16.1/sqlite-jdbc-3.16.1.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.16.1/xerial-sqlite-license.txt</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

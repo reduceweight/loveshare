@@ -16,7 +16,7 @@ class Member(models.Model):
 class Article(models.Model):
     title = models.CharField(u'标题',max_length=30)
     content = models.TextField(u'正文',max_length=300)
-    photo = models.ImageField(verbose_name='图片', upload_to='frontend/static/uploads/', default='./frontend/static/images/common/cate_banner.jpg')
+    photo = models.ImageField(verbose_name='图片', upload_to='uploads/', default='./frontend/static/images/indexView/house.png')
     pub_date = models.DateTimeField(u'发表时间', auto_now_add=True, editable = True)
     update_time = models.DateTimeField(u'更新时间',auto_now=True, null=True)
 
