@@ -1,56 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fe17aea-4b67-48c1-a8fc-96e550269146" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/static/images/common/logo.svg" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/header.vue" afterPath="$PROJECT_DIR$/frontend/src/components/header.vue" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/uploads/1482307962818.jpg" afterPath="$PROJECT_DIR$/storage/uploads/1482307962818.jpg" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/uploads/p42624609.jpg" afterPath="$PROJECT_DIR$/storage/uploads/p42624609.jpg" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/uploads/timg_8.jpg" afterPath="$PROJECT_DIR$/storage/uploads/timg_8.jpg" />
-      <change beforePath="$PROJECT_DIR$/loveshare/settings.py" afterPath="$PROJECT_DIR$/loveshare/settings.py" />
-      <change beforePath="$PROJECT_DIR$/loveshare/urls.py" afterPath="$PROJECT_DIR$/loveshare/urls.py" />
-      <change beforePath="$PROJECT_DIR$/share/migrations/0002_article.py" afterPath="$PROJECT_DIR$/share/migrations/0002_article.py" />
-      <change beforePath="$PROJECT_DIR$/share/migrations/0003_auto_20180314_1719.py" afterPath="$PROJECT_DIR$/share/migrations/0003_auto_20180314_1719.py" />
-      <change beforePath="$PROJECT_DIR$/share/models.py" afterPath="$PROJECT_DIR$/share/models.py" />
-      <change beforePath="$PROJECT_DIR$/share/views.py" afterPath="$PROJECT_DIR$/share/views.py" />
-      <change beforePath="$PROJECT_DIR$/static/images/common/QR_code.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/common/cate_banner.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/common/homepage_icons-weibo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/common/homepage_icons.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/common/hot_news_photo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/common/logo.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/common/news_bg.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/common/news_photo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/common/weixin_qrcode.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/banner01.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/banner02.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/banner03.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/blfc-hover.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/rczp-hover.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/rczp.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/search-btn.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/topic/icon1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/topic/icon1_hover.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/topic/icon2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/topic/icon2_hover.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/topic/icon3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/topic/icon3_hover.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/topic/icon4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/topic/icon4_hover.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/ygrk-hover.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/ygrk.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/zhyz-hover.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/zhyz.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/ztzl-hover.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home/ztzl-link.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/uploads/20383176_101659312820_2.jpg" afterPath="$PROJECT_DIR$/storage/uploads/20383176_101659312820_2.jpg" />
-      <change beforePath="$PROJECT_DIR$/static/uploads/timg_9.jpg" afterPath="$PROJECT_DIR$/storage/uploads/timg_9.jpg" />
-    </list>
+    <list default="true" id="1fe17aea-4b67-48c1-a8fc-96e550269146" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -790,6 +741,14 @@
       <workItem from="1521077333775" duration="224000" />
       <workItem from="1521077941649" duration="16000" />
     </task>
+    <task id="LOCAL-00001" summary="结构调整">
+      <created>1521193789811</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521193789811</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -851,6 +810,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="结构调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="结构调整" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
