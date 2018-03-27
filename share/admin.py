@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Member, Article
+from .models import Member, Article, Document
 
 # Register your models here.
 class MemberAdmin(admin.ModelAdmin):
@@ -18,3 +18,10 @@ class ArticleAdmin(admin.ModelAdmin):
 
 # 普通注册方法
 admin.site.register(Member, MemberAdmin)
+
+# 装饰器注册方法
+@admin.register(Document)
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+    list_per_page = 20
+    search_fields = ['title']

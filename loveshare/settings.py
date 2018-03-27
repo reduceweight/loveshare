@@ -24,8 +24,9 @@ SECRET_KEY = '-^xm@aa#-!#5ru4i&##44ichz*d0h^vj0k5u1xj2w-s291o&f5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = bool(os.environ.get('GOCMS_DEBUG', True))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'share',
+    'ckeditor',
+    'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
@@ -120,10 +123,24 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, '../frontend_static/')
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '../frontend_static/')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend/dist/static'),
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, '../storage/')
 MEDIA_URL = '/'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/articles'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 500,
+        'width': 900,
+        'toolbar': 'Standard',
+        'removePlugins': 'flash,scayt,wsc,language,forms,bidi,'
+                         'preview,print,newpage,templates,about,'
+                         'pastetext,pastefromword,smiley,pagebreak,'
+                         'selectall,iframe,paste'
+    }
+}

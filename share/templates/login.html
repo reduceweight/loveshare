@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>爱·分享</title>
+</head>
+<body>
+    <form class="m-login-form" action="." method="post">
+        {% csrf_token %}
+        <div class="m-form-group">
+            <label for="{{ form.username.id_for_label }}">
+                <span>姓名：</span>
+            </label>
+            <div>{{ form.username }}</div>
+        </div>
+        <div class="m-form-group">
+            <label for="{{ form.password.id_for_label }}">
+                <span>密码：</span>
+            </label>
+            <div>{{ form.password }}</div>
+        </div>
+        <input type="submit" value="登录">
+    </form>
+
+    <div>
+        <form action="." method="get">
+            标题：<input type="text" id="title" name="title">
+            文章ID：<input type="text" id="art_id" name="art_id">
+            <input type="button" id="j-queryBtn" value="查 询">
+        </form>
+        <div>
+            <p>查询结果</p>
+            <p id="j-queryResult"></p>
+        </div>
+    </div>
+
+    <div style="margin: 24px 0;">
+        <button id="j-loadMembers">Ajax 加载所有用户</button>
+        <p id="j-memberList"></p>
+    </div>
+
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $('#j-loadMembers').click(function(){
+        $.getJSON('/api/show_members', function (data) {
+            var html = "<table><tr><th>姓名</th><th>昵称</th><th>性别</th><th>出生日期</th><th>手机号码</th><th>邮箱地址</th>", result = data.list
+            for (var i = result.length - 1; i >= 0; i--) {
+                var user = result[i].fields
+                html += "<tr><td>"+user.name+"</td><td>"+user.nickname+"</td><td>"+user.sex+"</td><td>"+user.birthday+"</td><td>"+user.mobile+"</td><td>"+user.email+"</td></tr>"
+            }
+            html += "</table>"
+            $('#j-memberList').append(html)
+        })
+    })
+
+    $('#j-queryBtn').on('click', function () {
+        var title = document.getElementById('title')
+        var id = document.getElementById('art_id')
+        $.get("", {'title': title, 'id': id}, function (data) {
+
+        })
+    })
+</script>
+</html>

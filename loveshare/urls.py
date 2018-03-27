@@ -23,7 +23,9 @@ import share.urls
 
 urlpatterns = [
     path('', share_views.home, name='home'),
+    path('account/login/', share_views.user_login, name='login'),
     path('admin/', admin.site.urls),
     path('api/', include(share.urls)),
-    path('blog/', TemplateView.as_view(template_name="index.html"))
+    path('blog/', TemplateView.as_view(template_name="index.html")),
+    path('ckeditor/', include('ckeditor_uploader.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
