@@ -82,7 +82,7 @@ body, textarea, input, button, select, keygen, legend {
 }
 
 html {
-  background: #fff
+  background: #f0f2f5
 }
 
 body {
@@ -96,4 +96,15 @@ body {
 
 a, a:hover {
   color: #333;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }

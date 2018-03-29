@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
@@ -46,3 +47,61 @@ class Document(models.Model):
     def __str__(self):
         return self.title
 
+
+# class Columns(models.Model):
+#     name = models.CharField(max_length=36, verbose_name='名称')
+#     explain = models.CharField(max_length=30, verbose_name='说明')
+#     intro = models.TextField(default='', verbose_name='简介')
+#
+#     class Meta:
+#         verbose_name = '栏目'
+#         verbose_name_plural = '栏目'
+#
+#     def __str__(self):
+#         return self.name
+
+
+class Category(models.Model):
+    title = models.CharField(max_length=96, unique=True, verbose_name='名称')
+    explain = models.CharField(max_length=30, default='', verbose_name='说明')
+    intro = models.TextField(default='', verbose_name='简介')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = '分类'
+        verbose_name_plural = '分类'
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=60, verbose_name='标题')
+    content = models.TextField(max_length=300, verbose_name='内容')
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
+    pub_date = models.DateTimeField(verbose_name='发布时间', default=None, blank=True, null=True, help_text='选择文章实际的发布时间，默认为文章创建时间。')
+    weight = models.IntegerField(default=0, verbose_name='权重')
+    like = models.IntegerField(default=0, verbose_name='点赞数量')
+    page_view = models.IntegerField(default=0, verbose_name='浏览量')
+    author = models.ForeignKey('auth.User', on_delete='', blank=True, null=True, verbose_name='作者')
+    category = models.ManyToManyField(Category, default=None, verbose_name='分类')
+    status = models.IntegerField(choices=((1, '已发布'), (0, '草稿')), default=1, verbose_name='状态')
+
+    class Meta:
+        verbose_name = '文章'
+        verbose_name_plural = '文章'
+
+    def __str__(self):
+        return self.title
+
+    def get_url(self):
+        return self.get_absolute_url()
+
+    def get_absolute_url(self):
+        return reverse('post', kwargs={'pk': self.pk})
+
+    def parent(self):
+        return self.category
+
+    def category_list(self):
+        return ','.join([i.title for i in self.category.all()])
