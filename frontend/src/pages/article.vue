@@ -73,29 +73,38 @@ export default {
   },
   created () {
     var self = this
-    $.getJSON('/api/getCategoryList', function (data) {
-       self.categoryList = data.list
-    })
+    // $.getJSON('/api/getCategoryList', function (data) {
+    //    self.categoryList = data.list
+    // })
+
+    self.$http.get('http://127.0.0.1:8000/api/getCategoryList')
+      .then(function (response) {
+        self.categoryList = response.data.list
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   },
   mounted () {
-    $('#j-loadMembers').click(function(){
-      $.getJSON('/api/show_members', function (data) {
-        var html = "<table><tr><th>姓名</th><th>昵称</th><th>性别</th><th>出生日期</th><th>手机号码</th><th>邮箱地址</th>", result = data.list
-        for (var i = result.length - 1; i >= 0; i--) {
-          var user = result[i].fields
-          html += "<tr><td>"+user.name+"</td><td>"+user.nickname+"</td><td>"+user.sex+"</td><td>"+user.birthday+"</td><td>"+user.mobile+"</td><td>"+user.email+"</td></tr>"
-        }
-        html += "</table>"
-        $('#j-memberList').append(html)
-      })
-    })
+
   },
    methods: {
     getArticleByUser: function (title) {
       var self = this
-      $.get('/api/getArticleList',{'title':title}, function (data) {
-         self.articleList = data.list
+      // $.get('/api/getArticleList',{'title':title}, function (data) {
+      //    self.articleList = data.list
+      // })
+      self.$http.get('list/api/getArticleList', {
+        params: {
+          title: title
+        }
       })
+      .then(function (response) {
+        self.articleList = response.data.list
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
   }
 }

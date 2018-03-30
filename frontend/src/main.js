@@ -5,10 +5,11 @@ import App from './App'
 import Routers from './router'
 import VueRouter from 'vue-router'
 import Util from './libs/util'
+import axios from 'axios'
 
 Vue.use(VueRouter)
-
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
 
 // 路由配置
 const RouterConfig = {
