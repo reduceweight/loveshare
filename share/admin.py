@@ -30,16 +30,16 @@ class DocumentAdmin(admin.ModelAdmin):
 #     list_display = ('id', 'name', 'slug')
 #     list_display_links = ('id', 'name', 'slug')
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title','explain')
-    list_display_links = ('id', 'title')
-    list_per_page = 20
+# @admin.register(Category)
+# class CategoryAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'title','explain')
+#     list_display_links = ('id', 'title')
+#     list_per_page = 20
 
 
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'author', 'category_list')
-    list_display_links = ('id', 'title', 'author')
-    list_per_page = 20
-    ordering = ['pub_date']
+# @admin.register(Post)
+# class PostAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'title', 'author', 'category_list')
+#     list_display_links = ('id', 'title', 'author')
+#     list_per_page = 20
+#     ordering = ['pub_date']

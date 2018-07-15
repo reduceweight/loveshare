@@ -91,17 +91,17 @@ class Post(models.Model):
         verbose_name = '文章'
         verbose_name_plural = '文章'
 
-    def __str__(self):
-        return self.title
-
-    def get_url(self):
-        return self.get_absolute_url()
-
-    def get_absolute_url(self):
-        return reverse('post', kwargs={'pk': self.pk})
-
-    def parent(self):
-        return self.category
-
-    def category_list(self):
-        return ','.join([i.title for i in self.category.all()])
+    # def __str__(self):
+    #     return self.title
+    #
+    # def get_url(self):
+    #     return self.get_absolute_url()
+    #
+    # def get_absolute_url(self):
+    #     return reverse('post', kwargs={'pk': self.pk})
+    #
+    # def parent(self):
+    #     return self.category
+    #
+    # def category_list(self):
+    #     return ','.join([i.title for i in self.category.all()])

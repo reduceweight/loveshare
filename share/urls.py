@@ -1,5 +1,15 @@
 from django.urls import path
 from share import views
+from share import viewset
+from loveshare.api import router
+
+router.register(r'member', viewset.MemberViewSet)
+router.register(r'article', viewset.ArticleViewSet)
+router.register(r'post', viewset.PostViewSet)
+router.register(r'category', viewset.CategoryViewSet)
+
+
+
 
 urlpatterns = [
     path('add_member', views.add_member, ),

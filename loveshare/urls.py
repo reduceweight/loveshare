@@ -1,7 +1,7 @@
 """loveshare URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/dev/topics/http/urls/
+    https://docs.djangoproject.com/en/2.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,17 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from share import views as share_views
-from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
+from loveshare.api import router
 import share.urls
 
 urlpatterns = [
-    path('', share_views.home, name='home'),
-    path('account/login/', share_views.user_login, name='login'),
+    path('', TemplateView.as_view(template_name="index.html")),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
-    path('api/', include(share.urls)),
-    path('blog/', TemplateView.as_view(template_name="index.html")),
-    path('ckeditor/', include('ckeditor_uploader.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('api/', include(router.urls)),
+    path('api/auth/', include('rest_framework.urls')),
+]
+if settings.APP_ENV == 'docker':
+    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
