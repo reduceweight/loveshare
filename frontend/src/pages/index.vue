@@ -62,14 +62,14 @@ body {
   margin-top: -190px;
   width: 609px;
   height: 940px;
-  background: url(../../../frontend/static/images/indexView/balloon.png) no-repeat center top;
+  background: url(/static/images/indexView/balloon.png) no-repeat center top;
   z-index: 100;
 }
 header {
     top: 110px;
     position: relative;
     height: 255px;
-    background: url('../../../frontend/static/images/indexView/ribbon.png') center no-repeat;
+    background: url('/static/images/indexView/ribbon.png') center no-repeat;
     z-index: 100;
 }
 header #ribbon {
@@ -161,7 +161,7 @@ header .groom {
     color: #FAFDFC;
     font-size: 20px;
     font-family: "Sreda", "Georgia", "Times New Roman", serif;
-    background: url('../../../frontend/static/images/indexView/arrow.png') right 0px no-repeat;
+    background: url('/static/images/indexView/arrow.png') right 0px no-repeat;
     padding-right: 17px;
     width: 100px;
     animation: drumming-up 0.8s linear infinite;
@@ -207,7 +207,7 @@ header .groom {
     left: 50%;
     position: absolute;
     z-index: 0;
-    background-image: url('../../../frontend/static/images/indexView/clouds.png');
+    background-image: url('/static/images/indexView/clouds.png');
     background-repeat: no-repeat;
 }
 .cloud-1 {
@@ -228,7 +228,7 @@ header .groom {
 .cloud-bird {
     width: 48px;
     height: 32px;
-    background: url('../../../frontend/static/images/indexView/bird.png');
+    background: url('/static/images/indexView/bird.png');
 }
 @keyframes soar {
   50% {

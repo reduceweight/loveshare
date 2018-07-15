@@ -6,7 +6,7 @@
           <div class="panel panel-default">
               <div class="panel-heading">
                 <ul class="list-inline topic-filter">
-                  <li class="popover-with-html" v-for="item in categoryList" @click="getArticleByUser(item.fields.title)"><a class="active">{{item.fields.title}}</a></li>
+                  <li class="popover-with-html" v-for="item in categoryList" @click="getArticleByUser(item.title)"><a class="active">{{item.title}}</a></li>
                 </ul>
                 <div class="clearfix"></div>
               </div>
@@ -30,7 +30,7 @@
                                20.3k
                             </span>
                             <span class="count_seperator">|</span>
-                            <abbr title="2018-03-29 10:10:53" class="timeago">{{item.fields.pub_date}}</abbr>
+                            <abbr title="2018-03-29 10:10:53" class="timeago">{{item.pub_date}}</abbr>
                            </div>
                         </a>
                         <div class="avatar pull-left">
@@ -40,9 +40,9 @@
                         </div>
                         <div class="infos">
                           <div class="media-heading">
-                            <span class="hidden-xs label label-warning">置顶{{item.fields.author}}</span>
+                            <span class="hidden-xs label label-warning">置顶{{item.author}}</span>
                             <a href="https://laravel-china.org/topics/7657/laravel-tutorial-series-third-the-first-edition-of-the-laravel-tutorial-advanced-architecture-api-server" title="Laravel 教程系列书第三本《Laravel 教程实战高级 - 构架 API 服务器》">
-                               {{item.fields.title}}
+                               {{item.title}}
                             </a>
                           </div>
                         </div>
@@ -77,9 +77,9 @@ export default {
     //    self.categoryList = data.list
     // })
 
-    self.$http.get('http://127.0.0.1:8000/api/getCategoryList')
+    self.$http.get('/api/category.json')
       .then(function (response) {
-        self.categoryList = response.data.list
+        self.categoryList = response.data.results
       })
       .catch(function (error) {
         console.log(error);
@@ -90,17 +90,18 @@ export default {
   },
    methods: {
     getArticleByUser: function (title) {
+      if(title.length < 1) return;
       var self = this
       // $.get('/api/getArticleList',{'title':title}, function (data) {
       //    self.articleList = data.list
       // })
-      self.$http.get('list/api/getArticleList', {
+      self.$http.get('/api/post/', {
         params: {
           title: title
         }
       })
       .then(function (response) {
-        self.articleList = response.data.list
+        self.articleList = response.data.results
       })
       .catch(function (error) {
         console.log(error);
