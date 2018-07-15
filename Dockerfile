@@ -4,7 +4,7 @@ COPY frontend .
 RUN npm install && npm run build
 
 
-FROM docker pull yaochenfeng/djangobase
+FROM yaochenfeng/djangobase
 
 ENV DJANGO_APP=loveshare \
     DJANGO_VERSION=2.0.7 \
