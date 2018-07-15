@@ -70,7 +70,7 @@ export default {
 	display: block;
 	height: 33px;
 	width: 194px;
-	background: url(../../../frontend/static/images/common/logo.png) no-repeat center center;
+	background: url(../../static/images/common/logo.png) no-repeat center center;
 }
 .feel {
 	margin: 14px 0 0 0;
