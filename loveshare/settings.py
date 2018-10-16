@@ -9,28 +9,31 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import sys
 import os
 import environ
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-root = environ.Path(__file__) - 2 # three folder back (/a/b/c/ - 3 = /)
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+# 根目录
+root = environ.Path(__file__) - 2
+public_root = root.path('public/')
+##环境变量
+# reading .env file
+# environ.Env.read_env()
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, True)
 )
-# reading .env file
-# environ.Env.read_env()
-
+APP_ENV = env('APP_ENV', default='docker')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%cb0n^gkm9x5&c1rpwb-gxx7yhim_$#2apv7z5kj8b(w^hgfoa'
+SECRET_KEY = env('SECRET_KEY', default='%cb0n^gkm9x5&c1rpwb-gxx7yhim_$#2apv7z5kj8b(w^hgfoa')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-APP_ENV = env('APP_ENV', default='docker')
 
 ALLOWED_HOSTS = ['*']
 
@@ -44,18 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
-    'rest_framework',
-    'django_filters',
-    'share.apps.ShareConfig',
-    'ckeditor',
-    'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -68,8 +64,7 @@ ROOT_URLCONF = 'loveshare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend/dist'),os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/dist'), os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,87 +106,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#REST
-REST_FRAMEWORK = {
-    # 分页显示
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 20,
-    # 配置过滤
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.backends.DjangoFilterBackend',),
-    'DEFAULT_THROTTLE_CLASSES': (
-        'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle'
-    ),
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '100/min',
-        'user': '1000/min'
-    },
 
-}
-# cors
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = (
-    '*',
-)
-
-
-CORS_ALLOW_METHODS = (
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-    'VIEW',
-)
-
-CORS_ALLOW_HEADERS = (
-    'XMLHttpRequest',
-    'X_FILENAME',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-    'Pragma',
-)
-
-# CKEDITOR
-CKEDITOR_UPLOAD_PATH = 'uploads/articles'
-
-CKEDITOR_CONFIGS = {
-    'default': {
-        'height': 500,
-        'width': 900,
-        'toolbar': 'Standard',
-        'removePlugins': 'flash,scayt,wsc,language,forms,bidi,'
-                         'preview,print,newpage,templates,about,'
-                         'pastetext,pastefromword,smiley,pagebreak,'
-                         'selectall,iframe,paste'
-    }
-}
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
-
 LANGUAGE_CODE = 'zh-hans'
-
 TIME_ZONE = 'Asia/Shanghai'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-public_root = root.path('public/')
 MEDIA_ROOT = env('APP_MEDIA_ROOT', default=public_root('media'))
 MEDIA_URL = 'media/'
 STATIC_ROOT = env('APP_STATIC_ROOT', default=public_root('static'))
@@ -199,4 +125,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend/dist/static'),
 )
-
