@@ -3,7 +3,7 @@ WORKDIR /usr/src/app
 COPY frontend .
 RUN npm install && npm run build
 
-
+#基础库
 FROM yaochenfeng/djangobase
 
 ENV DJANGO_APP=loveshare \
