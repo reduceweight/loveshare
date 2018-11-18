@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'blog.apps.BlogConfig'
 ]
 
 MIDDLEWARE = [
@@ -121,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 MEDIA_ROOT = env('APP_MEDIA_ROOT', default=public_root('media'))
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 STATIC_ROOT = env('APP_STATIC_ROOT', default=public_root('static'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
