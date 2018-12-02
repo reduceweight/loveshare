@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-
 Vue.use(Router)
 
 const routes = [
@@ -14,6 +13,11 @@ const routes = [
     path: '/home',
     name: 'home',
     component: (resolve) => require(['@/pages/home'], resolve)
+  },
+  {
+    path: '/demo',
+    name: 'demo',
+    component: (resolve) => require(['@/pages/demo'], resolve)
   },
   {
     path: '/article',
