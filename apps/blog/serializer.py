@@ -2,7 +2,7 @@ from rest_framework import serializers
 from . import models
 from api.serializers import UserSerializer
 
-class ArticleSerializer(serializers.HyperlinkedModelSerializer):
+class ArticleSerializer(serializers.ModelSerializer):
     author = serializers.StringRelatedField(source='user.username')
     # 获取当前登录的用户
     user = serializers.HiddenField(
@@ -21,7 +21,7 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
         read_only_fields = ('add_time','click_num','love_num')
         exclude = ('is_delete',)
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     # articles = ArticleSerializer(many=True, read_only=True)
     class Meta:
         model = models.Category

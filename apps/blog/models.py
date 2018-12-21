@@ -37,6 +37,9 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+    def owner(self):
+        return self.user
+
     class Meta:
         verbose_name = '文章信息'
         verbose_name_plural = verbose_name

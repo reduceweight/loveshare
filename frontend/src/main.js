@@ -6,6 +6,7 @@ import Routers from './router'
 import VueRouter from 'vue-router'
 import Util from './libs/util'
 import axios from 'axios'
+import BaseLayout from './layout'
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -27,11 +28,11 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to, from, next) => {
   window.scrollTo(0, 0)
 })
-
+Vue.component('base-layout', BaseLayout)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })

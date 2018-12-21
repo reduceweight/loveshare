@@ -13,4 +13,6 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
         # Instance must have an attribute named `owner`.
         #obj相当于数据库中的model，这里要把owner改为我们数据库中的user
-        return obj.user == request.user
+        if hasattr(obj,'owner'):
+            return obj.user == request.user
+        return False
