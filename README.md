@@ -11,10 +11,20 @@ Django+Vue： build a personal website
 
 > pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 
-### 功能清单
-- api和界面
-- [ ] 注册 登录
-- [ ] 用户信息
-- [ ] 写文章
-- [ ] 文章评论
-- [ ] 文章分享
+### API功能清单
+- [ ] 权限和认证
+  - [ ] 登录
+    - [ ] 用户名登录
+    - [ ] token登录 
+    - [ ] 验证码登录
+    - [ ] 第三方登录
+  - [ ] 注册
+  - [ ] 权限分配
+  - [ ] 统一格式
+  - [ ] 支付
+  
+- [ ] 文章管理
+  - [ ] 列表、筛选、搜素
+  - [ ] 发布
+  - [ ] 评论
+  - [ ] 分享
