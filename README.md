@@ -28,3 +28,5 @@ Django+Vue： build a personal website
   - [ ] 发布
   - [ ] 评论
   - [ ] 分享
+ - [ ] 性能优化
+  - [ ] 缓存
