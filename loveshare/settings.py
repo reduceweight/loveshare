@@ -125,7 +125,7 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
     # 分页显示
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'core.pagination.PageNumberPagination',
     'PAGE_SIZE': 20,
     # 配置过滤
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.backends.DjangoFilterBackend',),
