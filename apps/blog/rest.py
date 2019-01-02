@@ -1,8 +1,11 @@
-from rest_framework import serializers, viewsets
+from rest_framework import viewsets
 from .models import ArticlePost
+from core.rest import UserSerializer, BaseSerializer
 
-class PostSerializer(serializers.HyperlinkedModelSerializer):
 
+class PostSerializer(BaseSerializer):
+    author = UserSerializer(source='owner',read_only=True)
+    
     class Meta:
         model = ArticlePost
         fields = '__all__'
