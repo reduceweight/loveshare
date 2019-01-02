@@ -1,7 +1,7 @@
 from loveshare.router import router
 from rest_framework import serializers
 from django.contrib.auth.models import User
-
+from .models import BaseModel
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
