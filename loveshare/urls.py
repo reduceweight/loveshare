@@ -21,6 +21,7 @@ from loveshare.router import router
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('core.urls')),
+    path('blog/', include('blog.urls')),
 ]
 
 urlpatterns += [
