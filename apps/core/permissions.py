@@ -14,7 +14,9 @@ class IsAdminOrIsOwner(permissions.BasePermission):
             return True
         if request.user and request.user.is_staff:
             return True
+        if request.user.is_authenticated and request.method == 'POST':
+            return True
         # Instance must have an attribute named `owner`.
-        if getattr(obj, 'owner', False):
-            return obj.owner == request.user
+        if getattr(obj, 'owner', False) and obj.owner == request.user:
+            return True
         return False
