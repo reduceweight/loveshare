@@ -2,6 +2,7 @@ from rest_framework import serializers, viewsets
 from .models import ArticlePost
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
+
     class Meta:
         model = ArticlePost
         fields = '__all__'
