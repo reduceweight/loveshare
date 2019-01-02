@@ -10,6 +10,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class BaseSerializer(serializers.HyperlinkedModelSerializer):
+    is_active = serializers.HiddenField(default=True)
+    created = serializers.DateTimeField(read_only=True)
     # 这样就可以直接获取到当前用户
     owner = serializers.HiddenField(
         default=serializers.CurrentUserDefault())
