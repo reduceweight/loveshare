@@ -8,6 +8,6 @@ router.register(r'users', viewset.UserViewSet)
 
 urlpatterns = [
     path('auth', include('rest_framework.urls')),
-    path('token-auth/', obtain_jwt_token),
-    path('token-verify/', verify_jwt_token),
+    path('token/login', obtain_jwt_token),
+    path('token/verify', verify_jwt_token),
 ]
