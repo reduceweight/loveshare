@@ -5,10 +5,11 @@ from core.rest import UserSerializer, BaseSerializer
 
 class PostSerializer(BaseSerializer):
     author = UserSerializer(source='owner',read_only=True)
-    
+
     class Meta:
         model = ArticlePost
         fields = '__all__'
+        depth = 1
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = ArticlePost.objects.all()
