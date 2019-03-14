@@ -14,3 +14,12 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+class ImgModel(models.Model):
+    creator = models.ForeignKey(User, on_delete=models.DO_NOTHING,null=True)
+    url = models.ImageField(null=False, blank=False, verbose_name='图片url')
+
+
+class FileModel(models.Model):
+    creator = models.ForeignKey(User, on_delete=models.DO_NOTHING,null=True)
+    url = models.FileField(null=False, blank=False, verbose_name='文件url')
