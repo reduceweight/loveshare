@@ -15,7 +15,7 @@ Django+Vue： build a personal website
 - [ ] 权限和认证
   - [ ] 登录
     - [ ] 用户名登录
-    - [ ] token登录 
+    - [x] token登录 
     - [ ] 验证码登录
     - [ ] 第三方登录
   - [ ] 注册
