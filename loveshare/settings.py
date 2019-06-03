@@ -124,6 +124,11 @@ STATIC_URL = '/static/'
 # REST_FRAMEWORK
 # http://www.django-rest-framework.org/
 REST_FRAMEWORK = {
+    # Base API policies
+    'DEFAULT_RENDERER_CLASSES': (
+        'core.renders.BaseJSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
     # 分页显示
     'DEFAULT_PAGINATION_CLASS': 'core.pagination.PageNumberPagination',
